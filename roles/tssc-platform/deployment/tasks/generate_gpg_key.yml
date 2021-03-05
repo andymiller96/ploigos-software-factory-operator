@@ -4,7 +4,7 @@
 
 - name: Set tssc-service-account credential facts from secret
   set_fact:
-    gpg_public_key:  "{{ secret_data.data.gpg_public_key | b64decode }}"
+    gpg_public_key: "{{ secret_data.data.gpg_public_key | b64decode }}"
     gpg_private_key: "{{ secret_data.data.gpg_private_key | b64decode }}"
   when:
     - secret_data != []

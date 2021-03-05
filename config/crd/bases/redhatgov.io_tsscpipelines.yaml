@@ -43,7 +43,9 @@ spec:
                 type: string
                 default: ref-quarkus-mvn-jenkins-std
               serviceName:
-                description: Name of the service the artifact built and deployed by this workflow implements as part of the application it is a part of.
+                description: |
+                  Name of the service the artifact built and deployed by this workflow implements as part of the
+                  application it is a part of.
                 type: string
                 default: fruit
               appRepo:
@@ -70,7 +72,8 @@ spec:
                     type: string
                     default: http://gitea.tssc.rht-set.com/ploigos-reference-applications/reference-quarkus-mvn-cloud-resources_jenkins_workflow-standard.git
                   destinationRepoName:
-                    description: Name given to the newly-created repository migration in platform-managed source control.
+                    description: |
+                      Name given to the newly-created repository migration in platform-managed source control.
                     type: string
                     default: reference-quarkus-mvn-cloud-resources_jenkins_workflow-standard
                 required:

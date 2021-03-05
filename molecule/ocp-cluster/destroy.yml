@@ -12,7 +12,7 @@
 
     - set_fact:
         custom_resources:
-        - TsscPlatform
+          - TsscPlatform
 
     - name: Remove CR
       k8s:

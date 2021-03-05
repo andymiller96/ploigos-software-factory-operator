@@ -51,7 +51,7 @@
 - name: Set tssc-service-account credential facts from secret
   set_fact:
     tssc_service_account:
-      username:  "{{ secret_data.data.username | b64decode }}"
+      username: "{{ secret_data.data.username | b64decode }}"
       password: "{{ secret_data.data.password | b64decode }}"
       email: "{{ secret_data.data.email | b64decode }}"
       first_name: "{{ secret_data.data.first_name | b64decode }}"
@@ -64,7 +64,7 @@
     - name: generate tssc-service-account credential facts
       set_fact:
         tssc_service_account:
-          username:  tssc
+          username: tssc
           password: "{{ lookup('password', '/dev/null length=16 chars=ascii_letters,digits') }}"
           email: tssc-service-account@redhat.com
           first_name: Tssc
@@ -148,18 +148,18 @@
 
 - name: Deploy Helm Chart for Tekton Cluster Resources
   block:
-  - name: Add ploigos chart repo
-    community.kubernetes.helm_repository:
-      name: ploigos_charts
-      repo_url: "https://ploigos.github.io/ploigos-charts"
+    - name: Add ploigos chart repo
+      community.kubernetes.helm_repository:
+        name: ploigos_charts
+        repo_url: "https://ploigos.github.io/ploigos-charts"
 
-  - name: Deploy cluster resources chart
-    community.kubernetes.helm:
-      name: ploigos-workflow-tekton-cluster-resources
-      chart_ref: ploigos_charts/ploigos-workflow-tekton-cluster-resources
-      values: "{{ lookup('template', 'ploigos-cluster-chart-values.yaml.j2') | from_yaml }}"
-      release_namespace: "{{ tssc_namespace }}"
-      release_state: "{{ cr_state }}"
-    register: cluster_resources_chart
-    ignore_errors: true
+    - name: Deploy cluster resources chart
+      community.kubernetes.helm:
+        name: ploigos-workflow-tekton-cluster-resources
+        chart_ref: ploigos_charts/ploigos-workflow-tekton-cluster-resources
+        values: "{{ lookup('template', 'ploigos-cluster-chart-values.yaml.j2') | from_yaml }}"
+        release_namespace: "{{ tssc_namespace }}"
+        release_state: "{{ cr_state }}"
+      register: cluster_resources_chart
+      ignore_errors: true
   when: platform_ci_tool == 'tekton'

@@ -21,7 +21,7 @@
 - name: Set tssc-service-account credential facts from secret
   set_fact:
     tssc_service_account:
-      username:  "{{ secret_data.data.username | b64decode }}"
+      username: "{{ secret_data.data.username | b64decode }}"
       password: "{{ secret_data.data.password | b64decode }}"
       email: "{{ secret_data.data.email | b64decode }}"
       first_name: "{{ secret_data.data.first_name | b64decode }}"

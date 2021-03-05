@@ -33,7 +33,8 @@
   shell: >-
     devsecops-api quay add-robot https://{{ quay_route }}
     --login-username '{{ tssc_service_account.username }}' --login-password '{{ tssc_service_account.password }}'
-    --organization platform --robot-name '{{ tssc_service_account.username }}' --robot-description 'TSSC Platform Robot Account'
+    --organization platform --robot-name '{{ tssc_service_account.username }}'
+    --robot-description 'TSSC Platform Robot Account'
   register: quay_robot
   # https://github.com/ansible/ansible/issues/27299
   # to_json|from_json| is a terrible hack but here we are

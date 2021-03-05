@@ -13,7 +13,7 @@
         kind: Namespace
         name: '{{ item }}'
       loop:
-      - '{{ namespace }}'
+        - '{{ namespace }}'
 
     - import_tasks: kustomize.yml
       vars:

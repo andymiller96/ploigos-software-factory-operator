@@ -10,8 +10,9 @@ namePrefix: tssc-operator-
 
 images:
 - name: testing
-  newName: testing-operator
+  newName: quay.io/dwinchell_redhat/tssc-operator
 
 patchesStrategicMerge:
 - ../manager_image.yaml
 - ../debug_logs_patch.yaml
+- ../pull_policy/Always.yaml

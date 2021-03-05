@@ -56,7 +56,8 @@ generated_password: "{{ lookup('password', '../tmp/rhssopasswd.txt length=15 cha
 #   jenkinsRole: # Set to 'admin', 'edit', 'view', or leave undefined if no access to jenkins is needed
 #   nexusRole: # Set to valid role for nexus, or leave undefined if no access to nexus is needed
 #   realmRoles: # list of Realm defined roles assigned to user
-#   clientRoles: # RH-SSO Clients may have custom roles, for each client provide a list of client specific roles to assign
+#   clientRoles: # RH-SSO Clients may have custom roles, for each client provide a list of client specific
+#                # roles to assign
 #     rh-sso-client-name:
 #      - "clientrole"
 #
